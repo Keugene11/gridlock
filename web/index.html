@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gridlock — Manhattan, 1:1</title>
+  <meta name="description" content="An open-world driving game in a 1:1 Manhattan built from NYC open data: every building, street, one-way and street tree." />
+  <link rel="icon" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <canvas id="c"></canvas>
+
+  <div id="hud" hidden>
+    <div id="topright">
+      <div id="clock">18:00</div>
+      <div id="money">$0</div>
+      <div id="stars"></div>
+      <div id="health"><i></i></div>
+    </div>
+    <div id="mission"></div>
+    <div id="toast"></div>
+    <div id="bottomleft">
+      <div id="street"></div>
+      <canvas id="radar" width="230" height="230"></canvas>
+    </div>
+    <div id="speedo"><b id="mph">0</b><span>MPH</span><div id="dmg"><i></i></div></div>
+    <div id="prompt"></div>
+  </div>
+
+  <div id="bigmap" hidden><canvas id="bigc"></canvas><div class="legend">M to close · yellow = your fare · blue = police</div></div>
+
+  <div id="overlay" class="title">
+    <div class="inner">
+      <h1>GRIDLOCK</h1>
+      <p class="tag">Manhattan, 1:1. Every building, street, one-way and street tree is real NYC open data.</p>
+      <div id="loading"><div class="bar"><i id="loadbar"></i></div><span id="loadtxt">Loading the city…</span></div>
+      <div id="ready" hidden>
+        <div class="quality">
+          <span>Graphics</span>
+          <button data-q="low">Low</button><button data-q="medium">Medium</button><button data-q="high">High</button>
+        </div>
+        <button id="play">Click to play</button>
+      </div>
+      <div class="controls">
+        <div><kbd>W A S D</kbd> drive / walk</div>
+        <div><kbd>Mouse</kbd> look</div>
+        <div><kbd>F</kbd> steal / exit car</div>
+        <div><kbd>Space</kbd> handbrake / jump</div>
+        <div><kbd>Shift</kbd> sprint</div>
+        <div><kbd>Click</kbd> punch</div>
+        <div><kbd>H</kbd> horn</div>
+        <div><kbd>M</kbd> map</div>
+        <div><kbd>T</kbd> skip an hour</div>
+        <div><kbd>R</kbd> reset car</div>
+        <div><kbd>V</kbd> camera</div>
+        <div><kbd>N</kbd> mute</div>
+      </div>
+      <p class="fine">Steal a yellow cab to pick up fares. Hit people or cops and NYPD comes after you — lose them to clear your stars.<br/>Data: NYC DoITT building footprints, DOT street centerline (CSCL), 2015 Street Tree Census, NYC Parks. Not affiliated with any game studio.</p>
+    </div>
+  </div>
+  <div id="big" hidden></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
